@@ -16,12 +16,15 @@ export default function AddReviews({addReview}) {
             addReview(author, text);
             setAuthor('');
             setText('');
+            dsblBtn(false);
         } 
     };
 
     function onChange() {
       setDsblBtn(true);
     }
+    
+    
 
   return (
     <>
