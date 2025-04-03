@@ -41,7 +41,7 @@ export default function AddReviews({addReview}) {
               onChange={(e) => setText(e.target.value)}
             />
             <ReCAPTCHA
-              sitekey="6Lc1JAkrAAAAAIcmOAGnyaPJl8QI3mASJ1H6pU-V"
+              sitekey="6LeHNgkrAAAAAO5XKDfa3aTpjvBNuIU5PIVYyeHo"
               onChange={onChange}
             />
             <button className="addReview__content-btn" type="submit">
