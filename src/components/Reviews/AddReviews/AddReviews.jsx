@@ -19,6 +19,7 @@ export default function AddReviews({addReview}) {
             setAuthor('');
             setText('');
             setDsblBtn(false);
+            recaptchaRef.current.reset();
 
         } 
     };
