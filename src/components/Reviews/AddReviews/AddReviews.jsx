@@ -12,21 +12,25 @@ export default function AddReviews({addReview}) {
 
     const [dsblBtn, setDsblBtn] = useState(true);
 
+    const [captchaVerified, setCaptchaVerified] = useState(false);
+    
+    const handleCaptchaChange = (value) => {
+      setCaptchaVerified(!!value);
+    }
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(author.trim() && text.trim()) {
+        if(captchaVerified && author.trim() && text.trim()) {
             addReview(author, text);
             setAuthor('');
             setText('');
             setDsblBtn(false);
-            recaptchaRef.current.reset();
+            setCaptchaVerified(false);
 
         } 
     };
 
-    function onChange() {
-      setDsblBtn(true);
-    }
     
      const handleChangeUsername = (event) => {
       setAuthor(event.target.value);
@@ -54,15 +58,18 @@ export default function AddReviews({addReview}) {
               onChange={(e) => setText(e.target.value)}
             />
             <ReCAPTCHA
-              sitekey="6LeHNgkrAAAAAO5XKDfa3aTpjvBNuIU5PIVYyeHo"
-              onChange={onChange}
+              sitekey={process.env.REACT_APP_RECAPTCHA_KEY}
+              onChange={handleCaptchaChange}
               ref={recaptchaRef}
               onExpired={() => {
                 recaptchaRef.current.reset();
               }}
             />
-            {dsblBtn ? (
-              <Button variant="contained" type="submit">
+            {!captchaVerified ? (
+              <Button 
+                variant="contained" 
+                type="submit"
+                >
                 Добавить отзыв
               </Button>
             ) : (

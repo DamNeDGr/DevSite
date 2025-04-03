@@ -18,6 +18,7 @@ export default function ReviewsCard({reviews, isAuth, onDelete}) {
         {isAuth ? <Button
             variant="text"
             color="error"
+            onClick={() => onDelete(item.id)}
           >
             Delete
           </Button> : ''}
