@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { Button } from '@mui/material';
 import './addReviews.css'
 import ReCAPTCHA from 'react-google-recaptcha';
+import { useRef } from 'react';
 
 export default function AddReviews({addReview}) {
 
-    const recaptchaRef = React.createRef();
+    const recaptchaRef = useRef(null);
 
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');
@@ -27,7 +28,9 @@ export default function AddReviews({addReview}) {
             setText('');
             setDsblBtn(false);
             setCaptchaVerified(false);
-
+            if(recaptchaRef.current) {
+              recaptchaRef.current.reset();
+            }
         } 
     };
 
