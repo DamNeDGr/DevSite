@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ReviewsList from './ReviewsList/ReviewsList';
 import './reviews.css'
 import AddReviews from './AddReviews/AddReviews';
+import ReviewsCard from './ReviewsCard/ReviewsCard';
 
 
 export default function Reviews() {
@@ -10,7 +11,7 @@ export default function Reviews() {
         { id: 2, author: 'Denis', text: 'Рекомендую этот сайт'},
     ]);
 
-    const [isAuth, setIsAuth] = useState(true);
+    const [isAuth, setIsAuth] = useState(false);
 
     const addReview = (author, text) => {
         const newReview = {
@@ -31,7 +32,7 @@ export default function Reviews() {
         <div className="reviews__content">
             <h1 className="reviews__title">Отзывы :</h1>
         </div>
-        <ReviewsList onDelete={deleteReview} Auth={isAuth} reviews={reviews}/>
+        <ReviewsCard reviews={reviews} isAuth={isAuth} onDelete={deleteReview}/>
         <AddReviews addReview={ addReview }/>
     </div>
   )
