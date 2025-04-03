@@ -65,7 +65,7 @@ export default function AddReviews({addReview}) {
                 recaptchaRef.current.reset();
               }}
             />
-            {!captchaVerified ? (
+            {captchaVerified ? (
               <Button variant="contained" type="submit">
                 Добавить отзыв
               </Button>
