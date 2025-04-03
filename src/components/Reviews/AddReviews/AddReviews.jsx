@@ -18,7 +18,7 @@ export default function AddReviews({addReview}) {
             addReview(author, text);
             setAuthor('');
             setText('');
-            dsblBtn(false);
+            setDsblBtn(false);
         } 
     };
 
