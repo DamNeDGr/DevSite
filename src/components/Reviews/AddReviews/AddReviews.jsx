@@ -58,7 +58,7 @@ export default function AddReviews({addReview}) {
               onChange={(e) => setText(e.target.value)}
             />
             <ReCAPTCHA
-              sitekey={process.env.REACT_APP_RECAPTCHA_KEY}
+              sitekey="6LeHNgkrAAAAAO5XKDfa3aTpjvBNuIU5PIVYyeHo"
               onChange={handleCaptchaChange}
               ref={recaptchaRef}
               onExpired={() => {
@@ -66,10 +66,7 @@ export default function AddReviews({addReview}) {
               }}
             />
             {!captchaVerified ? (
-              <Button 
-                variant="contained" 
-                type="submit"
-                >
+              <Button variant="contained" type="submit">
                 Добавить отзыв
               </Button>
             ) : (
