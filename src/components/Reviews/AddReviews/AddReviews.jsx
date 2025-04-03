@@ -28,7 +28,6 @@ export default function AddReviews({addReview}) {
             addReview(author, text);
             setAuthor('');
             setText('');
-            setDsblBtn(false);
             setCaptchaVerified(false);
             if(recaptchaRef.current) {
               recaptchaRef.current.reset();
