@@ -5,6 +5,8 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function AddReviews({addReview}) {
 
+    const grecaptchaObject = window.grecaptcha;
+
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');
 
@@ -49,6 +51,7 @@ export default function AddReviews({addReview}) {
             <ReCAPTCHA
               sitekey="6LeHNgkrAAAAAO5XKDfa3aTpjvBNuIU5PIVYyeHo"
               onChange={onChange}
+              grecaptcha={grecaptchaObject}
             />
             {dsblBtn ? (
               <Button variant="contained" type="submit">
