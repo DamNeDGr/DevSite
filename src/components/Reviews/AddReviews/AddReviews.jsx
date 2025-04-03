@@ -6,12 +6,14 @@ import { useRef } from 'react';
 
 export default function AddReviews({addReview}) {
 
+    const API_KEY = import.meta.env.VITE_API_KEY;
+    const RECAPTCHA_KEY = import.meta.env.VITE_RECAPTCHA_KEY;
+
     const recaptchaRef = useRef(null);
 
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');
 
-    const [dsblBtn, setDsblBtn] = useState(true);
 
     const [captchaVerified, setCaptchaVerified] = useState(false);
     
@@ -39,6 +41,7 @@ export default function AddReviews({addReview}) {
       setAuthor(event.target.value);
      }
     
+     
 
   return (
     <>
@@ -61,7 +64,7 @@ export default function AddReviews({addReview}) {
               onChange={(e) => setText(e.target.value)}
             />
             <ReCAPTCHA
-              sitekey="6LeHNgkrAAAAAO5XKDfa3aTpjvBNuIU5PIVYyeHo"
+              sitekey={RECAPTCHA_KEY}
               onChange={handleCaptchaChange}
               ref={recaptchaRef}
               onExpired={() => {
@@ -77,6 +80,7 @@ export default function AddReviews({addReview}) {
                 Добавить отзыв
               </Button>
             )}
+            
           </div>
         </form>
       </div>
