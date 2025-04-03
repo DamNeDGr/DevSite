@@ -5,12 +5,12 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function AddReviews({addReview}) {
 
-    const grecaptchaObject = window.grecaptcha;
+    const recaptchaRef = React.createRef();
 
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');
 
-    const [dsblBtn, setDsblBtn] = useState(false);
+    const [dsblBtn, setDsblBtn] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,6 +19,7 @@ export default function AddReviews({addReview}) {
             setAuthor('');
             setText('');
             setDsblBtn(false);
+
         } 
     };
 
@@ -26,6 +27,9 @@ export default function AddReviews({addReview}) {
       setDsblBtn(true);
     }
     
+     const handleChangeUsername = (event) => {
+      setAuthor(event.target.value);
+     }
     
 
   return (
@@ -39,7 +43,7 @@ export default function AddReviews({addReview}) {
               maxLength={30}
               value={author}
               placeholder="Введите имя"
-              onChange={(e) => setAuthor(e.target.value)}
+              onChange={handleChangeUsername}
             />
             <textarea
               className="addReview__content-text"
@@ -51,7 +55,10 @@ export default function AddReviews({addReview}) {
             <ReCAPTCHA
               sitekey="6LeHNgkrAAAAAO5XKDfa3aTpjvBNuIU5PIVYyeHo"
               onChange={onChange}
-              grecaptcha={grecaptchaObject}
+              ref={recaptchaRef}
+              onExpired={() => {
+                recaptchaRef.current.reset();
+              }}
             />
             {dsblBtn ? (
               <Button variant="contained" type="submit">
