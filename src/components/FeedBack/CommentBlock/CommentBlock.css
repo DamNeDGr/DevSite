@@ -13,10 +13,7 @@
     background: linear-gradient(90.00deg, rgb(169, 195, 246) 17.234%,rgba(241, 229, 229, 0) 102.35%);
 }
 
-.avatar {
-    border-radius: 100%;
-    margin-top: 7px;
-}
+
 
 .comment__content-text {
     

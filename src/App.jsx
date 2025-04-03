@@ -3,10 +3,10 @@ import Content from './components/Content/Content'
 import About from './components/Aboutme/AboutMe'
 import Contact from './components/Contacts/Contact';
 import Header from './components/Header/Header';
-import FeedBack from './components/FeedBack/FeedBack';
 
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Reviews from './components/Reviews/Reviews';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     
       <Route path='/' element={<Content/>} />
       <Route path='/about' element={<About/>} />
-      {/* <Route path='/feedback' element={<FeedBack/>} /> */}
+      <Route path='/reviews' element={<Reviews/>} />
       <Route path='/contact' element={<Contact/>} />
 
     </Routes>

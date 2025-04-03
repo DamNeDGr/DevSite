@@ -13,7 +13,7 @@ export default function Header() {
                 <ul className='menu-list'>
                     <li><a href='/' className='menu-item'>Главная</a></li>
                     <li><a href='/about' className='menu-item'>обо мне</a></li>
-                    {/* <li><a href='/feedback' className='menu-item'>отзывы</a></li> */}
+                    <li><a href='/reviews' className='menu-item'>отзывы</a></li>
                     <li><a href='/contact' className='menu-item'>контакты</a></li>
                 </ul>
             </div>

@@ -14,9 +14,6 @@ export default function CommentBlock({Username, Message}) {
   return (
     <div className="comment__block">
         <div className="comment__content">
-            <div className="comment__avatar">
-                <img src={Avatar} alt="" width='50' height='50' className="avatar" />
-            </div>
             <div className="comment__content-text">
                 <div className="comment__content-username">
                     <p className='username-text'>{Username}</p>
