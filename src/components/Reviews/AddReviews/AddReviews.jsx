@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from '@mui/material';
 import './addReviews.css'
 import ReCAPTCHA from 'react-google-recaptcha';
 
@@ -6,6 +7,8 @@ export default function AddReviews({addReview}) {
 
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');
+
+    const [dsblBtn, setDsblBtn] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,8 +19,8 @@ export default function AddReviews({addReview}) {
         } 
     };
 
-    function onChange(value) {
-      console.log("Captcha value:", value);
+    function onChange() {
+      setDsblBtn(true);
     }
 
   return (
@@ -44,9 +47,15 @@ export default function AddReviews({addReview}) {
               sitekey="6LeHNgkrAAAAAO5XKDfa3aTpjvBNuIU5PIVYyeHo"
               onChange={onChange}
             />
-            <button className="addReview__content-btn" type="submit">
-              Добавить отзыв
-            </button>
+            {dsblBtn ? (
+              <Button variant="contained" type="submit">
+                Добавить отзыв
+              </Button>
+            ) : (
+              <Button variant="contained" type="submit" disabled>
+                Добавить отзыв
+              </Button>
+            )}
           </div>
         </form>
       </div>
